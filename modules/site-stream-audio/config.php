@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'site-stream-audio',
-    '__version' => '0.0.1',
+    '__version' => '0.0.2',
     '__git' => 'git@github.com:getmim/site-stream-audio.git',
     '__license' => 'MIT',
     '__author' => [
@@ -50,6 +50,13 @@ return [
                 ],
                 'method' => 'GET',
                 'handler' => 'SiteStreamAudio\\Controller\\Stream::single'
+            ],
+            'siteStreamAudioUpdate' => [
+                'path' => [
+                    'value' => '/stream/audio/update'
+                ],
+                'method' => 'GET',
+                'handler' => 'SiteStreamAudio\\Controller\\Stream::update'
             ]
         ]
     ],

@@ -29,4 +29,23 @@ class StreamController extends \Site\Controller
         $this->res->setCache(86400);
         $this->res->send();
     }
+
+    public function updateAction(){
+        $stream = SAudio::getOne([]);
+        $content = [];
+
+        if($stream){
+            $content = [
+                'song'   => $stream->curr_song,
+                'artist' => $stream->curr_artist,
+                'cover'  => $stream->curr_cover
+            ];
+        }
+
+        $result = json_encode($content);
+
+        $this->res->addHeader('Content-Type', 'application/json');
+        $this->res->addContent($result);
+        $this->res->send();
+    }
 }
